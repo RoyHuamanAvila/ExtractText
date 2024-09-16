@@ -12,5 +12,8 @@
   "description": "",
   "devDependencies": {
     "electron": "^32.0.2"
+  },
+  "dependencies": {
+    "tesseract.js": "^5.1.1"
   }
 }

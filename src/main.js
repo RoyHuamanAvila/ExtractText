@@ -1,6 +1,6 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
-const { readFiles } = require("./utils");
+const { readFiles, extractTextFromImage } = require("./utils");
 
 const createWindow = () => {
   const win = new BrowserWindow({
@@ -17,6 +17,7 @@ const createWindow = () => {
 
 app.whenReady().then(() => {
   ipcMain.handle("readFiles", readFiles);
+  ipcMain.handle("extractTextFromImage", extractTextFromImage);
   createWindow();
 });
 

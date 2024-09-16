@@ -1,5 +1,5 @@
 const func = async () => {
-  window.files.readFiles();
+  window.files.extractTextFromImage();
 };
 
 func();
