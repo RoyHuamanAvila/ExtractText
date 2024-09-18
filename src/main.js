@@ -16,8 +16,12 @@ const createWindow = () => {
 };
 
 app.whenReady().then(() => {
-  ipcMain.handle("readFiles", readFiles);
-  ipcMain.handle("extractTextFromImage", extractTextFromImage);
+  ipcMain.handle("readFiles", async (event, text) => {
+    return await readFiles(text);
+  });
+  ipcMain.handle("extractTextFromImage", async () => {
+    return await extractTextFromImage();
+  });
   createWindow();
 });
 

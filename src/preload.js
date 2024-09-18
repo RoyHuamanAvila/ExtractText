@@ -1,6 +1,6 @@
 const { contextBridge, ipcRenderer } = require("electron");
 
 contextBridge.exposeInMainWorld("files", {
-  readFiles: () => ipcRenderer.invoke("readFiles"),
+  readFiles: (text) => ipcRenderer.invoke("readFiles", text),
   extractTextFromImage: () => ipcRenderer.invoke("extractTextFromImage"),
 });
