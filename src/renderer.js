@@ -1,9 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
   const func = async () => {
     try {
-      const text = await window.files.extractTextFromImage();
-      const message = await window.files.readFiles(text);
-      document.getElementById("message").innerHTML = message;
+      const arrayText = await window.files.analiceText();
+      const div = document.getElementById("content");
+      arrayText.forEach((text) => {
+        const p = document.createElement("p");
+        p.textContent = text;
+        div.appendChild(p);
+      });
     } catch (error) {
       console.error(error);
     }

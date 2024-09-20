@@ -1,6 +1,11 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
-const { readFiles, extractTextFromImage } = require("./utils");
+const {
+  readFiles,
+  extractTextFromImage,
+  analiceText,
+  extractTextFromImages,
+} = require("./utils");
 
 const createWindow = () => {
   const win = new BrowserWindow({
@@ -21,6 +26,12 @@ app.whenReady().then(() => {
   });
   ipcMain.handle("extractTextFromImage", async () => {
     return await extractTextFromImage();
+  });
+  ipcMain.handle("extractTextFromImages", async () => {
+    return await extractTextFromImages();
+  });
+  ipcMain.handle("analiceText", async () => {
+    return await analiceText();
   });
   createWindow();
 });
